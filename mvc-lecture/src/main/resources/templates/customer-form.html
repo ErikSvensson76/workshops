@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+
+<body>
+	<form  th:action="@{processform}" th:object="${customer}" method="post">
+	<table border = "1">
+		<tr>
+			<td><label th:text="#{customer.firstName}" /> </td>
+			<td><input type="text" th:field="*{firstName}" /></td>
+		</tr>
+		<tr>
+			<td><label th:text="#{customer.lastName}" /> </td>
+			<td><input type="text" th:field="*{lastName}" /></td>
+		</tr>
+		<tr>
+			<td><label th:text="#{customer.email}" /> </td>
+			<td><input type="text" th:field="*{email}" /></td>
+		</tr>
+		<tr>
+			<td><label th:text="#{customer.hobby}" /> </td>
+			<td><input type="text" th:field="*{hobby}" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+	</form>
+</body>
+
+
+
+
+
+</html>

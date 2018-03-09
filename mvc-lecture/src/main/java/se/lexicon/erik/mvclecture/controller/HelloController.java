@@ -5,10 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/hello")
 public class HelloController {
 	
-	@RequestMapping("/hello")
+	@RequestMapping("/")
 	public String sayHello(Model theModel) {
 		String greeting = "Hi there";
 		

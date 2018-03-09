@@ -73,6 +73,12 @@ public class Customer implements Serializable{
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
 	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
 
 	@Override
 	public String toString() {
