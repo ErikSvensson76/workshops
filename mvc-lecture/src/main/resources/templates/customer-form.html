@@ -6,19 +6,19 @@
 	<form  th:action="@{processform}" th:object="${customer}" method="post">
 	<table border = "1">
 		<tr>
-			<td><label th:text="#{customer.firstName}" /> </td>
+			<td><label th:text="${customer.firstName}" />First name</td>
 			<td><input type="text" th:field="*{firstName}" /></td>
 		</tr>
 		<tr>
-			<td><label th:text="#{customer.lastName}" /> </td>
+			<td><label th:text="${customer.lastName}" />Last name</td>
 			<td><input type="text" th:field="*{lastName}" /></td>
 		</tr>
 		<tr>
-			<td><label th:text="#{customer.email}" /> </td>
+			<td><label th:text="${customer.email}" />Email</td>
 			<td><input type="text" th:field="*{email}" /></td>
 		</tr>
 		<tr>
-			<td><label th:text="#{customer.hobby}" /> </td>
+			<td><label th:text="${customer.hobby}" />Hobby</td>
 			<td><input type="text" th:field="*{hobby}" /></td>
 		</tr>
 		<tr>

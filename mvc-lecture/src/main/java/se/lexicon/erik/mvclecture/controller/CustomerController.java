@@ -1,16 +1,15 @@
 package se.lexicon.erik.mvclecture.controller;
 
-import javax.swing.text.html.FormSubmitEvent.MethodType;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import se.lexicon.erik.mvclecture.db_access.CustomerRepository;
 import se.lexicon.erik.mvclecture.domain.Customer;
@@ -33,6 +32,17 @@ public class CustomerController {
 		return "customer-view";
 	}
 	
+	@GetMapping("/showall")
+	public String getCustomerList(Model theModel) {
+		List <Customer> customers = new ArrayList<>();
+		
+		customers = (List<Customer>) customerRepository.findAll();
+		theModel.addAttribute("customers", customers);
+		
+		return "show-customers";
+		
+	}
+	
 	@GetMapping("/customerform")
 	public String showCustomerForm(Model theModel) {
 		
@@ -44,12 +54,11 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = "/processform", method = RequestMethod.POST)
-	public String processForm(@ModelAttribute("customer") Customer theCustomer
-			,Model theModel) {
+	public String processForm(@ModelAttribute("customer") Customer theCustomer ,Model theModel) {
 		
-		Customer toSave = theCustomer;
+		
 		//Save the customer to database
-		customerRepository.save(toSave);
+		customerRepository.save(theCustomer);
 		
 		
 		theModel.addAttribute("customer",theCustomer);
