@@ -61,10 +61,11 @@ public class CustomerController {
 		customerRepository.save(theCustomer);
 		
 		
-		theModel.addAttribute("customer",theCustomer);
+		List <Customer> customers = new ArrayList<>();
+		customers = (List<Customer>) customerRepository.findAll();		
+		theModel.addAttribute("customers", customers);
 		
-		
-		return "form-confirmation";
+		return "show-customers";
 		
 		
 	}
