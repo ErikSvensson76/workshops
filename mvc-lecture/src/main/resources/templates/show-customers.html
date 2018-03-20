@@ -3,6 +3,7 @@
 
 <head>
 	<title>Customers</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
@@ -14,9 +15,24 @@
 		<td th:text="${customer.lastName}" />
 		<td th:text="${customer.email}" />
 		<td th:text="${customer.hobby}" />
+		<td>
+			<a th:href="@{details/(id=${customer.id})}" class="button">See details</a>
+		</td>
+		<td>
+			<a th:href="@{edit/(id=${customer.id})}" class="button">Edit</a>
+		</td>
+		<td>
+		  	<form method="POST" th:action="@{remove/(id=${customer.id})}">
+      			<button type="submit" name="submit">Delete</button>
+  			</form>
+		</td>
+		
+		 
 	</tr>
 	
 </table>
+
+<a th:href="@{/customer/customerform}" >Create new customer</a>
 
 </body>
 
